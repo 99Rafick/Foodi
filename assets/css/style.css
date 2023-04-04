@@ -208,7 +208,7 @@ body .container{
     grid-template-columns: 1fr 1fr;
 }
 
-.container .abs-wrapper-icone{
+.container   .abs-wrapper-icone{
     position: sticky;
     top: 50%;
     width: max-content;
