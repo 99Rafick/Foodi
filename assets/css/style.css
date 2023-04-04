@@ -453,7 +453,7 @@ body .container{
         width: 300px;
         height: 60vh;
         position: absolute;
-        right: -100%;
+        right: -200%;
         top: 0;
         background-color: white;
         z-index: 100;
@@ -525,7 +525,7 @@ body .container{
         padding: var(--ml-padding);
     }
 
-    .container .main .abs-wrapper-icone{
+    .container  .abs-wrapper-icone{
         display: none;
     }
     
