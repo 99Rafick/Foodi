@@ -550,6 +550,14 @@ body .container{
         width: 95%;
     }
 
+    .container .header{
+        padding: var(--small-padding);
+    }
+
+    .container .main{
+        padding: var(--small-padding);
+    }
+
     .container .main .hero{
         min-height: 60vh;
     }
