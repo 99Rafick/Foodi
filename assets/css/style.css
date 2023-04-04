@@ -196,7 +196,7 @@ body .container{
 
 
 .container .main{
-    
+    margin-top: -250px;
     padding: var(--xxl-padding);    
     width: 100%;
     height: max-content;
