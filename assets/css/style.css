@@ -208,9 +208,10 @@ body .container{
     grid-template-columns: 1fr 1fr;
 }
 
-.container .main .abs-wrapper-icone{
-    position: absolute;
+.container .abs-wrapper-icone{
+    position: sticky;
     top: 50%;
+    width: max-content;
     left: 30px;
     display: flex;
     flex-direction: column;
@@ -220,12 +221,12 @@ body .container{
     color: var(--light-color);
 }
 
-.container .main .abs-wrapper-icone hr{
+.container .abs-wrapper-icone hr{
     height: 120px;
     width: 1px;
 }
 
-.container .main .abs-wrapper-icone ion-icon{
+.container .abs-wrapper-icone ion-icon{
     font-size: 1.2em;
 }
 
@@ -449,14 +450,13 @@ body .container{
     }
 
     .container .header .nav{
-        width: 270px;
+        width: 300px;
         height: 60vh;
         position: absolute;
-        right: 0;
+        right: -100%;
         top: 0;
         background-color: white;
         z-index: 100;
-        transform: translateX(2000px);
         transition: 0.2s;
         box-shadow: 1px 1px 25px rgb(00, 0, 0, 0.025),
         -1px -1px 25px rgb(00, 0, 0, 0.025);
@@ -464,7 +464,7 @@ body .container{
 
 
     .container .header .nav.see{
-        transform: translateX(105px);
+        right: -30px;
     }
 
     
@@ -516,6 +516,8 @@ body .container{
 }
 
 
+
+
 @media screen and (max-width: 720px) {
 
     body .container{
@@ -537,13 +539,6 @@ body .container{
         box-shadow: 1px 1px 25px rgb(00, 0, 0, 0.025),
                     -1px -1px 25px rgb(00, 0, 0, 0.025); */
     }
-    
-}
-
-
-
-
-@media screen and (max-width: 500px) {
 
     body .container{
         padding: var(--small-padding);
