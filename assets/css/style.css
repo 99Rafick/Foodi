@@ -196,7 +196,6 @@ body .container{
 
 
 .container .main{
-    margin-top: -250px;
     padding: var(--xxl-padding);    
     width: 100%;
     height: max-content;
@@ -565,4 +564,11 @@ body .container{
         font-size: 0.8em;
     }
     
+}
+
+
+@media screen and (min-width: 720px) {
+    .container .main{
+        margin-top: -250px;
+    }
 }
