@@ -12,6 +12,7 @@
 
 
 
+
 *{
     margin: 0;
     padding: 0;
@@ -44,6 +45,37 @@ a{
     color: black;
 }
 
+
+.reveal-right{
+    opacity: 0;
+    transform: translateX(-200px);
+}
+
+.reveal-left{
+    opacity: 0;
+    transform: translateX(200px);
+}
+
+.reveal-top{
+    opacity: 0;
+    transform: translateY(200px);
+    
+}
+
+.reveal-bottom{
+    opacity: 0;
+    transform: translateY(-200px);
+}
+
+
+
+.reveal-visible{
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+    transition: 1s cubic-bezier(.54, .01, 0, .99);
+}
+
+
 body{
     position: relative;
     width: 100%;
@@ -58,12 +90,11 @@ body{
 
 body .container{
     position: relative;
-    width: 80%;
-    height: 95%;
+    width: 100%;
+    height: 100%;
     background-color: rgb(255 255 255 / 95%);
     backdrop-filter: blur(7px);
     z-index: 1000;
-    border-radius: 15px;
     overflow-y: auto;
     scrollbar-color: #346abf white; /* ascensseur bleu sur fond blanc */
     scrollbar-size: auto; /* largeur par défaut */
@@ -153,6 +184,18 @@ body .container{
 }
 
 
+
+.container .header ul li a{
+    transition: 0.2s;
+}
+
+
+.container .header ul li a:hover{
+    color: var(--primary-color);
+}
+
+
+
 .container .header ul li{
     position: relative;
     font-size: 0.95em;
@@ -192,6 +235,14 @@ body .container{
     align-items: center;
     font-size: 0.82em;
     font-weight: bold;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+
+.container .header .btn-login span:hover{
+    background-color: var(--primary-color);
+    color: white;
 }
 
 
@@ -202,7 +253,7 @@ body .container{
 }
 
 .container .main .hero{
-    min-height: 70vh;
+    min-height: 90vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -228,6 +279,20 @@ body .container{
 .container .abs-wrapper-icone ion-icon{
     font-size: 1.2em;
 }
+
+.container .abs-wrapper-icone ion-icon:nth-child(3){
+    transition-delay: 1s;
+}
+
+
+.container .abs-wrapper-icone ion-icon:nth-child(2){
+    transition-delay: 0.25s;
+}
+
+.container .abs-wrapper-icone ion-icon:nth-child(1){
+    transition-delay: 0.5s;
+}
+
 
 
 
@@ -280,11 +345,21 @@ body .container{
     align-items: center;
     border-radius: 25px;
     color: white;
+    cursor: pointer;
+    transition: 0.3s;
 }
+
+
 
 
 .container .main .left a{
     background-color: var(--primary-color);
+}
+
+.container .main .left a:nth-child(1):hover{
+    background-color: white;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
 }
 
 .container .main .left a.no-color{
@@ -293,6 +368,11 @@ body .container{
     font-weight: 700;
     gap: 10px;
 }
+
+.container .main .left a.no-color{
+    color: #ff7650;
+}
+
 
 
 .container .main .hero .right{
@@ -308,8 +388,8 @@ body .container{
 
 
 .container .main .hero .right img:nth-child(1){
-    width: 380px;
-    height: 380px;
+    width: 420px;
+    height: 420px;
     object-fit: cover;
     /* z-index: 100; */
 }
@@ -331,6 +411,7 @@ body .container{
     width: 100%;
     min-height: 50vh;
     height: max-content;
+    padding-bottom: 50px;
 }
 
 
@@ -352,8 +433,8 @@ body .container{
 
 
 .container .main .about .list .list-child{
-    height: 250px;
-    width: 185px;
+    height: 300px;
+    width: 250px;
     background-color: white;
     border-radius: 15px;
     box-shadow: 1px 1px 25px rgb(00, 0, 0, 0.025),
@@ -361,10 +442,42 @@ body .container{
 }
 
 
+.container .main .about .list .list-child:nth-child(1){
+    transition-delay: 0.1s;
+}
+
+.container .main .about .list .list-child:nth-child(2){
+    transition-delay: 0.2s;
+}
+
+.container .main .about .list .list-child:nth-child(3){
+    transition-delay: 0.3s;
+}
+
+.container .main .about .list .list-child:nth-child(4){
+    transition-delay: 0.4s;
+}
+
+
 .container .about .list-child{
     display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    padding: 0 15px;
+    grid-template-rows: 68% 32%;
+    /* row-gap: 20px; */
+    padding: 15px 15px;
+}
+
+@media screen and (max-width: 991px) {
+    .container .main .about .list .list-child{
+        height: 350px;
+        width: 45%;
+    }
+}
+
+
+.container .about .list-child .bg-image{
+    background-image: url('/assets/img/cheeseburger-hamberger-fond-blanc-fast-food_130265-3211.jpg');
+    background-size: cover;
+    background-position: 50% 50%;
 }
 
 
@@ -382,6 +495,8 @@ body .container{
     font-family: 'Roboto Serif', serif;
 
 }
+
+
 
 .container .about .list-child .banner-text div{
     display: flex;
@@ -519,11 +634,6 @@ body .container{
 
 @media screen and (max-width: 720px) {
 
-    body .container{
-        width: 90%;
-        padding: var(--ml-padding);
-    }
-
     .container  .abs-wrapper-icone{
         display: none;
     }
@@ -531,7 +641,7 @@ body .container{
     
 
     .container .main .about .list .list-child{
-        /* height: 250px; */
+        height: 350px;
         width: 100%;
         /* background-color: white;
         border-radius: 15px;
@@ -539,11 +649,15 @@ body .container{
                     -1px -1px 25px rgb(00, 0, 0, 0.025); */
     }
 
-    body .container{
-        padding: var(--small-padding);
-        width: 95%;
+    
+    .container .main .about .list .list-child .bg-image{
+        background-size: 50%;
+        background-repeat: no-repeat;
     }
 
+    body .container{
+        padding: var(--small-padding);
+    }
     .container .header{
         padding: var(--small-padding);
     }
@@ -570,5 +684,14 @@ body .container{
 @media screen and (min-width: 720px) {
     .container .main{
         margin-top: -250px;
+    }
+
+
+   
+}
+
+@media screen and (max-width: 500px) {
+    .container .main .about .list .list-child .bg-image{
+        background-size: 80%;
     }
 }

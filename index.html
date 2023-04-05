@@ -11,11 +11,11 @@
     <div class="container">
         
 
-        <header class="header">
-            <h1>Foodi</h1>
+        <header class="header reveal-right">
+            <h1 class="">Foodi</h1>
 
             <div class="nav">
-                <ul>
+                <ul class="">
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#">Menu</a></li>
                     <li><a href="#">About us</a></li>
@@ -32,18 +32,18 @@
         </header>
 
         <div class="abs-wrapper-icone">
-            <hr>
-            <ion-icon name="logo-facebook"></ion-icon>
-            <ion-icon name="logo-youtube"></ion-icon>
-            <ion-icon name="logo-instagram"></ion-icon>
-            
+            <hr class="reveal-top">
+            <ion-icon name="logo-facebook" class="reveal-bottom"></ion-icon>
+            <ion-icon name="logo-youtube" class="reveal-bottom"></ion-icon>
+            <ion-icon name="logo-instagram" class="reveal-bottom"></ion-icon>
+
         </div>
         <main class="main">
            
             <div class="hero">
                
     
-                <div class="left">
+                <div class="left reveal-top">
                     <h1>Tasty Food <span>Collections</span></h1>
                     <p>To provide nutritionnal support for an organism  Food is usually of plant, animal or fungal origin...</p>
                     <div>
@@ -55,9 +55,8 @@
                     </div>
                 </div>
     
-                <div class="right">
-                    <img src="assets/img/pi.png" alt="" srcset="">
-                    <img src="assets/img/tracé.png" alt="">
+                <div class="right reveal-bottom">
+                    <img src="assets/img/Pizd.png" alt="" srcset="">
                 </div>
             </div>
 
@@ -65,7 +64,7 @@
             <div class="about">
                 <h2>Popular Dishes</h2>
                 <div class="list">
-                    <div class="list-child">
+                    <div class="list-child reveal-right">
                         <div class="bg-image">
 
                         </div>
@@ -79,7 +78,7 @@
 
                         </div>
                     </div>
-                    <div class="list-child">
+                    <div class="list-child reveal-right">
                         <div class="bg-image">
 
                         </div>
@@ -93,7 +92,7 @@
 
                         </div>
                     </div>
-                    <div class="list-child">
+                    <div class="list-child reveal-right">
                         <div class="bg-image">
 
                         </div>
@@ -107,7 +106,7 @@
 
                         </div>
                     </div>
-                    <div class="list-child">
+                    <div class="list-child reveal-right">
                         <div class="bg-image">
 
                         </div>
@@ -150,6 +149,43 @@
                 header.classList.add('glass')
             }
         }
+
+
+        const ratio = .1
+        const option = {
+            root: null,
+            rootMargin: '0px',
+            threshold: ratio
+        }
+
+
+        const handleIntersect = function (entries, observer){
+            entries.forEach(function (entry){
+                if(entry.intersectionRatio > ratio){
+                    entry.target.classList.add('reveal-visible')
+                    observer.unobserve(entry.target)
+                }
+            })
+        }
+        
+        const observer = new IntersectionObserver(handleIntersect, option)
+        document.querySelectorAll('.reveal-right').forEach(function(r) {
+            observer.observe(r)
+        })
+        
+        
+         document.querySelectorAll('.reveal-left').forEach(function(r) {
+            observer.observe(r)
+        })
+        
+        document.querySelectorAll('.reveal-top').forEach(function(r) {
+            observer.observe(r)
+        })
+        
+        document.querySelectorAll('.reveal-bottom').forEach(function(r) {
+            observer.observe(r)
+        }) 
+        
         
     </script>
 </body>
